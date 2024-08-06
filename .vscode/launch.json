@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Eval Analyze with CUDA",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/eval_analyze.py",
+            "args": [
+                "--model_path", "outputs/edm_geom_drugs",
+                "--n_samples", "100",
+                "--batch_size_gen", "1", 
+                "--time_classifiers_path", "time_regressor/outputs/time_classifier_final/time_regressor_alpha",
+                "--tweedie_ub", "600",
+                "--property", "alpha",
+                "--window_min", "-10",
+                "--window_max", "10",
+                "--time_window",
+                "--exp_name", "OGGeom_TCS_mu",
+                "--project_name", "Rebuttal",
+                "--no_wandb"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "1,3"
+            }
+        }
+    ]
+}
